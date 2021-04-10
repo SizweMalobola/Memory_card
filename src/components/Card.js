@@ -7,7 +7,7 @@ function Card({ caption, imgUrl }) {
     return newCaption.toUpperCase();
   };
   return (
-    <div className="card">
+    <div className="card" id={caption}>
       <div
         style={{ backgroundImage: `url(${imgUrl})` }}
         className="card-img"

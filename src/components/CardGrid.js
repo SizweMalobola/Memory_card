@@ -16,16 +16,39 @@ function CardGrid(props) {
     { url: "/assets/leorio.png", id: "leorio" },
     { url: "/assets/meruem.jpeg", id: "meruem" },
   ]);
+  const [score, setScore] = useState({ currentScore: 0, highScore: 0 });
+  const [cardIds, setCardIds] = useState([]);
+
+  const checkId = (id) => {
+    if (cardIds.includes(id)) {
+      console.log("game over");
+      setCardIds([]);
+      if (score.currentScore > score.highScore) {
+        setScore({ ...score, highScore: score.currentScore });
+      }
+      setScore({ ...score, currentScore: 0 });
+    } else {
+      setCardIds((prev) => [...prev, id]);
+      setScore({ ...score, currentScore: score.currentScore + 1 });
+    }
+    console.log(cardIds);
+    console.log(score);
+  };
+  // componentDidMount
   useEffect(() => {
-    console.log("useEffect");
-    setDeck((prev) => (prev = shuffleDeck(prev)));
-    let cards = document.querySelectorAll(".card");
-    cards.forEach((card) => {
-      card.addEventListener("click", (e) => {
+    console.log("useEffect- didmount");
+    // setDeck((prev) => (prev = shuffleDeck(prev)));
+    let cardGrid = document.querySelector("#card-grid");
+    cardGrid.addEventListener("click", (e) => {
+      e.stopPropagation();
+      if (e.target.classList.contains("card")) {
+        console.log(e.target);
+        // checkId(e.target.id);
         setDeck((prev) => (prev = shuffleDeck(prev)));
-      });
+      }
     });
   }, []);
+
   const shuffleDeck = (array) => {
     console.log("shuffling");
     let oldDeck = [...array];
