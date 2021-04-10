@@ -95,30 +95,27 @@ header {
   align-items: center;
 }
 /* card */
-/* innercontainer */
 .card {
   width: 100%;
   height: 100%;
-  z-index: 10000;
+  perspective: 1000px;
 }
 .card-content {
   width: 100%;
   height: 100%;
-  padding: 0.5rem;
   background-color: black;
   border-radius: 5px;
   color: aliceblue;
+  position: relative;
+  text-align: center;
+  transition: all 900ms ease;
+  transform-style: preserve-3d;
 }
-/* loook at some animations bud */
 .card-content:hover {
   cursor: pointer;
-  background-color: gray;
+  background-color: white;
   color: black;
 }
-/* face / front and back*/
-
-/* .face {
-} */
 
 /* front face */
 .card-front {
@@ -129,18 +126,37 @@ header {
   width: 100%;
   height: 90%;
   border-radius: 5px;
-  background-color: rgb(66, 184, 184);
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
 }
 .card-caption {
+  height: 10%;
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* back face */
-/* .card-back {
-} */
+.card-front,
+.card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  padding: 0.5rem;
+  backface-visibility: hidden;
+}
+.card-back {
+  background-color: white;
+  border: 5px solid black;
+  border-radius: 5px;
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card-back img {
+  width: 70%;
+}

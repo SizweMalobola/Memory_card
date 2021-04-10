@@ -28,6 +28,7 @@ export default class CardGrid extends Component {
     this.shuffleDeck = this.shuffleDeck.bind(this);
   }
   checkId(id) {
+    console.log(`top id is ${id}`);
     if (this.state.cardIds.includes(id)) {
       this.setState({ cardIds: [] });
       if (this.state.currentScore > this.state.highScore) {
@@ -41,9 +42,9 @@ export default class CardGrid extends Component {
         currentScore: this.state.currentScore + 1,
       });
     }
+    console.log(`bottom id is ${id}`);
   }
   shuffleDeck(array) {
-    console.log("shuffling");
     let oldDeck = [...array];
     let freshDeck = [];
     while (freshDeck.length !== 12) {
@@ -61,10 +62,21 @@ export default class CardGrid extends Component {
     console.log("did mount");
     this.setState({ deck: this.shuffleDeck(this.state.deck) });
     const cards = document.querySelectorAll(".card");
-    cards.forEach((card) => {
+    let cardsArray = Array.from(cards);
+    cardsArray.forEach((card) => {
       card.addEventListener("click", (e) => {
-        this.checkId(e.target.id);
-        this.setState({ deck: this.shuffleDeck(this.state.deck) });
+        const cardContent = document.querySelectorAll(".card-content");
+        cardContent.forEach((card) => {
+          card.style.transform = "rotateY(180deg)";
+        });
+        setTimeout(() => {
+          this.setState({ deck: this.shuffleDeck(this.state.deck) });
+        }, 890);
+        setTimeout(() => {
+          cardContent.forEach((card) => {
+            card.style.transform = "rotateY(0deg)";
+          });
+        }, 1000);
       });
     });
   }
@@ -81,7 +93,14 @@ export default class CardGrid extends Component {
       <>
         <div id="card-grid">
           {this.state.deck.map((obj, index) => {
-            return <Card key={index} caption={obj.id} imgUrl={obj.url} />;
+            return (
+              <Card
+                eventHandler={this.checkId}
+                key={index}
+                caption={obj.id}
+                imgUrl={obj.url}
+              />
+            );
           })}
         </div>
       </>
