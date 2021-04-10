@@ -71,12 +71,12 @@ export default class CardGrid extends Component {
         });
         setTimeout(() => {
           this.setState({ deck: this.shuffleDeck(this.state.deck) });
-        }, 890);
+        }, 900);
         setTimeout(() => {
           cardContent.forEach((card) => {
             card.style.transform = "rotateY(0deg)";
           });
-        }, 1000);
+        }, 1100);
       });
     });
   }
