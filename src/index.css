@@ -128,15 +128,17 @@ header {
   height: 90%;
   border-radius: 5px;
   background-color: rgb(66, 184, 184);
-  /* background-image: url(); */
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  /* border: 1px soild black; */
 }
 .card-caption {
   text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.card-inner {
+  height: 100%;
+  width: 100%;
 }
