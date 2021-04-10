@@ -8,16 +8,18 @@ function Card({ caption, imgUrl }) {
   };
   return (
     <div className="card" id={caption}>
-      <div className="card-inner">
-        <div
-          style={{ backgroundImage: `url(${imgUrl})` }}
-          className="card-img"
-        ></div>
-        <div className="card-caption">
-          <h3>{makeCaption(caption)}</h3>
+      <div className="card-content">
+        <div className="card-front face">
+          <div
+            style={{ backgroundImage: `url(${imgUrl})` }}
+            className="card-img"
+          ></div>
+          <div className="card-caption">
+            <h3>{makeCaption(caption)}</h3>
+          </div>
         </div>
+        <div className="card-back face"></div>
       </div>
-      <div className="card-back"></div>
     </div>
   );
 }

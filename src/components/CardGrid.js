@@ -60,16 +60,12 @@ export default class CardGrid extends Component {
   componentDidMount() {
     console.log("did mount");
     this.setState({ deck: this.shuffleDeck(this.state.deck) });
-    const cardGrid = document.querySelector("#card-grid");
-    cardGrid.addEventListener("click", (e) => {
-      if (e.target.classList.contains("card")) {
+    const cards = document.querySelectorAll(".card");
+    cards.forEach((card) => {
+      card.addEventListener("click", (e) => {
         this.checkId(e.target.id);
-        console.log(
-          this.state,
-          `object length ${Object.keys(this.state).length}`
-        );
         this.setState({ deck: this.shuffleDeck(this.state.deck) });
-      }
+      });
     });
   }
   //
