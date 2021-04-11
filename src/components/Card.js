@@ -17,7 +17,9 @@ function Card({ caption, imgUrl, eventHandler }) {
       <div className="card-content">
         <div className="card-front">
           <div
-            style={{ backgroundImage: `url(${imgUrl})` }}
+            style={{
+              backgroundImage: `url(${process.env.PUBLIC_URL + imgUrl})`,
+            }}
             className="card-img"
           ></div>
           <div className="card-caption">
