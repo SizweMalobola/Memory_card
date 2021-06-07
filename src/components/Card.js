@@ -28,7 +28,7 @@ function Card({ caption, imgUrl, eventHandler }) {
         </div>
         <div className="card-back">
           <img
-            src="https://static.wikia.nocookie.net/hunterxhunter/images/0/05/Hunter_Association_logo.png/revision/latest?cb=20180405075402"
+            src={`${process.env.PUBLIC_URL}/assets/Hunter_Association_logo.png`}
             alt="hunter x hunter logo"
           ></img>
         </div>

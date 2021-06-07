@@ -5,7 +5,7 @@ function GameTitle({ title, children }) {
     <div id="game-title-div">
       <div id="game-logo-div">
         <img
-          src="https://static.wikia.nocookie.net/hunterxhunter/images/0/05/Hunter_Association_logo.png/revision/latest?cb=20180405075402"
+          src={`${process.env.PUBLIC_URL}/assets/Hunter_Association_logo.png`}
           alt="hunter x hunter logo"
         ></img>
         <h1>{title}</h1>
