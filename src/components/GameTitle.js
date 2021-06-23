@@ -10,7 +10,6 @@ function GameTitle({ title, children }) {
         ></img>
         <h1>{title}</h1>
       </div>
-      {children}
     </div>
   );
 }
