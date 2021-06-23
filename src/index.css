@@ -156,6 +156,12 @@ header {
     font-size: 1.8rem;
   }
 }
+@media screen and (max-width: 770px) {
+  #game-score-div {
+    top: 12rem;
+  }
+}
+
 @media screen and (max-width: 725px) {
   #card-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -182,5 +188,50 @@ header {
   }
   #game-score-div h1 {
     font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #game-logo-div h1 {
+    font-size: 2.5rem;
+  }
+  #card-grid {
+    padding: 2.5rem 1rem;
+  }
+  #game-score-div {
+    top: 7.9rem;
+  }
+  #game-score-div h1 {
+    font-size: 1.7rem;
+  }
+}
+@media screen and (max-width: 450px) {
+  #game-logo-div h1 {
+    font-size: 2.2rem;
+  }
+  #card-grid {
+    padding: 2.5rem 1rem;
+  }
+  #game-score-div {
+    top: 7.3rem;
+  }
+  #game-score-div h1 {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-width: 375px) {
+  #game-title #game-logo-div h1 {
+    font-size: 2.2rem;
+  }
+  #game-title-div {
+    border-bottom: none;
+  }
+  #card-grid {
+    padding: 2.5rem 1rem;
+  }
+  #game-score-div {
+    top: 9.3rem;
+  }
+  #game-score-div h1 {
+    font-size: 1.5rem;
   }
 }
